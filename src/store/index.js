@@ -20,7 +20,7 @@ export default new Vuex.Store({
     //Consultar y Obtener Personajes
     async getPersonajes({commit}){
       //const peticion= await fetch('https://futuramaapi.herokuapp.com/api/v2/characters');
-      const peticion= await fetch('http://localhost:3000/Users/');
+      const peticion= await fetch('https://backendtic2022.herokuapp.com/Users');
       const data= await peticion.json();
       console.log(data);
       commit('setPersonajes', data);
@@ -28,7 +28,7 @@ export default new Vuex.Store({
 
     //Eliminar personaje con el id (misma estructura que con Postman)
     async deletePersonajes({commit}, personajes){
-      const peticion = await fetch ('http://localhost:3000/Users/', {
+      const peticion = await fetch ('https://backendtic2022.herokuapp.com/Users', {
         method: 'DELETE',
         headers: {'Content-Type' : 'application/json'},
         body: JSON.stringify(personajes)
@@ -37,7 +37,7 @@ export default new Vuex.Store({
 
     //Agregar personaje
     async setPersonajes({commit}, personajes){
-      const peticion = await fetch ('http://localhost:3000/Users/', {
+      const peticion = await fetch ('https://backendtic2022.herokuapp.com/Users', {
         method: 'POST',
         headers: {'Content-Type' : 'application/json'},
         body: JSON.stringify(personajes)
@@ -46,7 +46,7 @@ export default new Vuex.Store({
     
     //Actualizar personaje
     async updatePersonajes({commit}, personajes){
-      const peticion = await fetch ('http://localhost:3000/Users/', {
+      const peticion = await fetch ('https://backendtic2022.herokuapp.com/Users', {
         method: 'PUT',
         headers: {'Content-Type' : 'application/json'},
         body: JSON.stringify(personajes)
